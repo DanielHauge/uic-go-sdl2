@@ -1,0 +1,4 @@
+github.com/DanielHauge/ge-go-sdl2 v0.0.0-20220530205202-d6dfe5b94441 h1:AjRh0oUfKjsHjinppLKruh89b2MyddU7bAvFoQJm6Lc=
+github.com/DanielHauge/ge-go-sdl2 v0.0.0-20220530205202-d6dfe5b94441/go.mod h1:8N182t5C/M92488VkCQrtUgBYzIFg3f3ZZ9JJKpQ5Ik=
+github.com/veandco/go-sdl2 v0.4.21 h1:85AtFYv3vSPZvyOOxkJ03sHoJe8ESjPSZLr0KueQtVY=
+github.com/veandco/go-sdl2 v0.4.21/go.mod h1:OROqMhHD43nT4/i9crJukyVecjPNYYuCofep6SNiAjY=
