@@ -28,7 +28,7 @@ type Widget struct {
 	Widget   []Widget   `xml:"widget"`
 }
 
-type Ui struct {
+type QtUi struct {
 	XMLName     xml.Name `xml:"ui"`
 	Text        string   `xml:",chardata"`
 	Version     string   `xml:"version,attr"`
