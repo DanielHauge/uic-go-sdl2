@@ -37,5 +37,5 @@ func constructUserInputCallback(eventInterface userEventInterface) string {
 }
 
 func constructStateChangeNotifyFunction(eventInterface stateChangeEventInterface) string {
-	return fmt.Sprintf("func %s(value string){\n ge_go_sdl2.NotifyPropertyChangeAsync(%s, %s, value) }\n", eventInterface.functionIdentifier, eventInterface.ElementIdIdentifier, eventInterface.Property)
+	return fmt.Sprintf("func %s(value string){\n ge_go_sdl2.NotifyPropertyChangeAsync(%s, \"%s\", value) }\n", eventInterface.functionIdentifier, eventInterface.ElementIdIdentifier, eventInterface.Property)
 }

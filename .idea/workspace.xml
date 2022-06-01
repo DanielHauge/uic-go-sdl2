@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="131df651-9be7-401a-b9ef-354054036991" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/auxiliry.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/file-creation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-construction.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser-qt.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/presenter-construction.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view-construction.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt-ui.go" beforeDir="false" afterPath="$PROJECT_DIR$/qt-ui.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestOutput/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestOutput/test_presenter.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/test_presenter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestOutput/test_view.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/test_view.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser-qt.go" beforeDir="false" afterPath="$PROJECT_DIR$/parser-qt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presenter-construction.go" beforeDir="false" afterPath="$PROJECT_DIR$/presenter-construction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view-construction.go" beforeDir="false" afterPath="$PROJECT_DIR$/view-construction.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +50,7 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "D:/repo/ge-go-sdl2",
+    "last_opened_file_path": "D:/repo/uic-go-sdl2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

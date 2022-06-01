@@ -121,5 +121,5 @@ func constructTextField(textField ge_go_sdl2.TextField, viewId string) (string, 
 
 	construction := fmt.Sprintf("// %s text field construction \n\n%s %s %s\n", textField.Id, onChangedChannelConstruction, textFieldConstruction, handleNewValueConstruction)
 
-	return identifier, construction, handleNewValueConstruction
+	return identifier, construction, onNewValueFunctionIdentifier
 }
