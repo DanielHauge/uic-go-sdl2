@@ -1,7 +1,5 @@
 package gui
 
-import ge_go_sdl2 "github.com/DanielHauge/ge-go-sdl2"
-
 func OnClick_Hello_button_pushButton() {
 	// Update model
 }
