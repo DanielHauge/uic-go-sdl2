@@ -1,6 +1,6 @@
 package gui
 
-import ge_go_sdl2 "github.com/DanielHauge/ge-go-sdl2"
+import "github.com/DanielHauge/ge-go-sdl2"
 
 // UI element declaration
 var (
@@ -33,8 +33,8 @@ func construct_View_Hello() {
 		H:            17,
 		W:            56,
 		Content:      "PushButton",
-		BgColor:      DefaultViewColor,
-		BorderColor:  DefaultViewBorderColor,
+		BgColor:      DefaultButtonColor,
+		BorderColor:  DefaultButtonBorderColor,
 		ContentLabel: Hello_text_pushButton_label,
 		OnClick:      Hello_button_pushButton_onclick,
 	}
@@ -51,8 +51,8 @@ func construct_View_Hello() {
 		Id:          "textEdit",
 		Size:        DefaultTextSize,
 		Value:       "",
-		BgColor:     DefaultViewColor,
-		BorderColor: DefaultViewBorderColor,
+		BgColor:     DefaultTextFieldColor,
+		BorderColor: DefaultTextFieldBorderColor,
 		Font:        DefaultFont,
 		OnChanged:   textfield_textEdit_onchange,
 	}

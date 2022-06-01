@@ -57,7 +57,7 @@ func constructView(view ge_go_sdl2.View) (string, string, []userEventInterface, 
 		"%s = ge_go_sdl2.View{\nX:%d,\nY: %d,\nH:%d,\nW:%d,\nId:\"%s\",\nBorderColor:%s,\nBgColor:%s,\n\tChildren: %s,}\n",
 		viewIdentifier, view.X, view.Y, view.H, view.W, view.Id, DefaultBorderColor, defaultColor, childrenIdentifier)
 	elementDeclarations.WriteString(fmt.Sprintf("%s %s\n", viewIdentifier, "ge_go_sdl2.View"))
-	viewCodeFileContent := fmt.Sprintf("package gui\n\nimport ge_go_sdl2 \"github.com/DanielHauge/ge-go-sdl2\"\n\n // UI element declaration \n var (\n%s) \n\n// %s view and elements construction \nfunc construct_%s(){\n %s \n// %s view element construction \n %s %s \n} \n", elementDeclarations.String(), view.Id, viewIdentifier, childElementConstructions.String(), view.Id, childrenSliceConstruction, viewConstruction)
+	viewCodeFileContent := fmt.Sprintf("package gui\n\nimport \"github.com/DanielHauge/ge-go-sdl2\"\n\n // UI element declaration \n var (\n%s) \n\n// %s view and elements construction \nfunc construct_%s(){\n %s \n// %s view element construction \n %s %s \n} \n", elementDeclarations.String(), view.Id, viewIdentifier, childElementConstructions.String(), view.Id, childrenSliceConstruction, viewConstruction)
 
 	return viewIdentifier, viewCodeFileContent, userEventsInterfaces, stateChangeEventInterfaces
 }
@@ -91,8 +91,8 @@ func constructButton(btn ge_go_sdl2.Button, viewId string, declarations *strings
 	declarations.WriteString(fmt.Sprintf("%s %s\n", btnTextIdentifier, "ge_go_sdl2.Text"))
 	onClickIdentifier := fmt.Sprintf("%s_button_%s_onclick", viewId, btn.Id)
 	onClickChannelConstruction := fmt.Sprintf("%s := make(chan string)\n", onClickIdentifier)
-	defaultColor := ifElseAssign(btn.BgColor == 0, "DefaultViewColor", fmt.Sprintf("0x%x", btn.BgColor))
-	DefaultBorderColor := ifElseAssign(btn.BorderColor == 0, "DefaultViewBorderColor", fmt.Sprintf("0x%x", btn.BorderColor))
+	defaultColor := ifElseAssign(btn.BgColor == 0, "DefaultButtonColor", fmt.Sprintf("0x%x", btn.BgColor))
+	DefaultBorderColor := ifElseAssign(btn.BorderColor == 0, "DefaultButtonBorderColor", fmt.Sprintf("0x%x", btn.BorderColor))
 	identifier := fmt.Sprintf("%s_button_%s", viewId, btn.Id)
 	btnDeclaration := fmt.Sprintf(
 		"%s = ge_go_sdl2.Button{\nId: \"%s\",\nX: %d,\nY: %d,\nH: %d,\nW: %d,\nContent: \"%s\",\nBgColor: %s,\nBorderColor: %s,\nContentLabel: %s ,\n OnClick: %s,\n\t}\n",
@@ -107,8 +107,8 @@ func constructButton(btn ge_go_sdl2.Button, viewId string, declarations *strings
 func constructTextField(textField ge_go_sdl2.TextField, viewId string) (string, string, string) {
 
 	defaultSize := ifElseAssign(textField.Size == 0, "DefaultTextSize", strconv.Itoa(textField.Size))
-	defaultColor := ifElseAssign(textField.BgColor == 0, "DefaultViewColor", fmt.Sprintf("0x%x", textField.BgColor))
-	DefaultBorderColor := ifElseAssign(textField.BorderColor == 0, "DefaultViewBorderColor", fmt.Sprintf("0x%x", textField.BorderColor))
+	defaultColor := ifElseAssign(textField.BgColor == 0, "DefaultTextFieldColor", fmt.Sprintf("0x%x", textField.BgColor))
+	DefaultBorderColor := ifElseAssign(textField.BorderColor == 0, "DefaultTextFieldBorderColor", fmt.Sprintf("0x%x", textField.BorderColor))
 	onChangedChannelIdentifier := fmt.Sprintf("textfield_%s_onchange", textField.Id)
 	onChangedChannelConstruction := fmt.Sprintf("%s := make(chan string)\n", onChangedChannelIdentifier)
 	identifier := fmt.Sprintf("%s_textField_%s", viewId, textField.Id)

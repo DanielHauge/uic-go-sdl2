@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	uic_go_sdl2 "uic-go-sdl2"
+	gui "uic-go-sdl2/TestOutput"
 )
 
 func main() {
@@ -19,6 +20,7 @@ func main() {
 		fmt.Println("Done.")
 	} else {
 		fmt.Println("Expected input and output paths as argument.")
+		gui.RunGui()
 	}
 }
 

@@ -19,6 +19,11 @@ type userEventInterface struct {
 func constructPresenter(ueInterfaces []userEventInterface, sceInterfaces []stateChangeEventInterface) string {
 	builder := strings.Builder{}
 	builder.WriteString("package gui\n")
+
+	if len(sceInterfaces) > 0 {
+		builder.WriteString("\nimport \"github.com/DanielHauge/ge-go-sdl2\"\n\n")
+	}
+
 	for _, ueInterface := range ueInterfaces {
 		builder.WriteString(constructUserInputCallback(ueInterface))
 	}
