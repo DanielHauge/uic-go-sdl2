@@ -12,7 +12,7 @@ var (
 )
 
 // MainWindow view and elements construction
-func construct_MainWindow_view() {
+func construct_View_MainWindow() {
 	// pushButton button construction
 
 	// pushButton_label text construction

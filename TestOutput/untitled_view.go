@@ -13,7 +13,7 @@ var (
 )
 
 // Hello view and elements construction
-func construct_Hello_view() {
+func construct_View_Hello() {
 	// pushButton button construction
 
 	// pushButton_label text construction

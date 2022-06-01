@@ -17,7 +17,9 @@ var (
 
 func RunGui() {
 	var views []ge_go_sdl2.View
+	construct_View_MainWindow()
 	views = append(views, View_MainWindow)
+	construct_View_Hello()
 	views = append(views, View_Hello)
 	ge_go_sdl2.Run(views)
 }

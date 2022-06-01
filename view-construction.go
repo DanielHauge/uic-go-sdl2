@@ -57,7 +57,7 @@ func constructView(view ge_go_sdl2.View) (string, string, []userEventInterface, 
 		"%s = ge_go_sdl2.View{\nX:%d,\nY: %d,\nH:%d,\nW:%d,\nId:\"%s\",\nBorderColor:%s,\nBgColor:%s,\n\tChildren: %s,}\n",
 		viewIdentifier, view.X, view.Y, view.H, view.W, view.Id, DefaultBorderColor, defaultColor, childrenIdentifier)
 	elementDeclarations.WriteString(fmt.Sprintf("%s %s\n", viewIdentifier, "ge_go_sdl2.View"))
-	viewCodeFileContent := fmt.Sprintf("package gui\n\nimport ge_go_sdl2 \"github.com/DanielHauge/ge-go-sdl2\"\n\n // UI element declaration \n var (\n%s) \n\n// %s view and elements construction \nfunc construct_%s_view(){\n %s \n// %s view element construction \n %s %s \n} \n", elementDeclarations.String(), view.Id, view.Id, childElementConstructions.String(), view.Id, childrenSliceConstruction, viewConstruction)
+	viewCodeFileContent := fmt.Sprintf("package gui\n\nimport ge_go_sdl2 \"github.com/DanielHauge/ge-go-sdl2\"\n\n // UI element declaration \n var (\n%s) \n\n// %s view and elements construction \nfunc construct_%s(){\n %s \n// %s view element construction \n %s %s \n} \n", elementDeclarations.String(), view.Id, viewIdentifier, childElementConstructions.String(), view.Id, childrenSliceConstruction, viewConstruction)
 
 	return viewIdentifier, viewCodeFileContent, userEventsInterfaces, stateChangeEventInterfaces
 }

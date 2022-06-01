@@ -5,23 +5,6 @@ import (
 	"strings"
 )
 
-/*
-
-var (
-	DefaultFont                 = "./assets/default.ttf"
-	DefaultButtonBorderColor    = 0xffff0000
-	DefaultButtonColor          = 0xffffff00
-	DefaultButtonTextSize       = 12
-	DefaultLabelSize            = 14
-	DefaultTextSize             = 14
-	DefaultTextFieldColor       = 0xffffffff
-	DefaultTextFieldBorderColor = 0x00000000
-	DefaultViewColor            = 0xeeeeeeee
-	DefaultViewBorderColor      = 0xffffff00
-)
-
-*/
-
 func defaultsDeclaration(fontPath string) string {
 	fontPath = strings.Replace(fontPath, "\\", "/", -1)
 	fontPath = strings.Replace(fontPath, ":", "", -1)
@@ -36,6 +19,7 @@ func constructMain(fontDir string, viewIdentifiers []string) string {
 	builder.WriteString("func RunGui(){\n")
 	builder.WriteString("var views []ge_go_sdl2.View\n")
 	for _, viewIdentifier := range viewIdentifiers {
+		builder.WriteString(fmt.Sprintf("construct_%s()\n", viewIdentifier))
 		builder.WriteString(fmt.Sprintf("views = append(views, %s)\n", viewIdentifier))
 	}
 	builder.WriteString(fmt.Sprintf("ge_go_sdl2.Run(views)\n}"))

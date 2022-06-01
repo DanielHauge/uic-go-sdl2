@@ -7,10 +7,10 @@
     <list default="true" id="131df651-9be7-401a-b9ef-354054036991" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestOutput/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestOutput/test_presenter.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/test_presenter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestOutput/test_view.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/test_view.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser-qt.go" beforeDir="false" afterPath="$PROJECT_DIR$/parser-qt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presenter-construction.go" beforeDir="false" afterPath="$PROJECT_DIR$/presenter-construction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestOutput/untitled_presenter.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/untitled_presenter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestOutput/untitled_view.go" beforeDir="false" afterPath="$PROJECT_DIR$/TestOutput/untitled_view.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-construction.go" beforeDir="false" afterPath="$PROJECT_DIR$/main-construction.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view-construction.go" beforeDir="false" afterPath="$PROJECT_DIR$/view-construction.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
