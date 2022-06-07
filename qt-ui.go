@@ -2,8 +2,6 @@ package uic_go_sdl2
 
 import "encoding/xml"
 
-// https://www.onlinetool.io/xmltogo/
-
 type Rect struct {
 	Text   string `xml:",chardata"`
 	X      string `xml:"x"`
