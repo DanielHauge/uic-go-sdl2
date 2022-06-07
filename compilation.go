@@ -24,7 +24,7 @@ func Compile(inputDir string, outputDir string) {
 		viewIdentifiers = append(viewIdentifiers, viewIdentifier)
 	}
 	mainCode := constructMain(outputDir, viewIdentifiers)
-	createGoFile(fmt.Sprintf("%s/main.go", outputDir), mainCode)
+	createGoFile(fmt.Sprintf("%s/compilation.go", outputDir), mainCode)
 	copyFont(outputDir)
 }
 
