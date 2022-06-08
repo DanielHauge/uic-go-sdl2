@@ -38,12 +38,14 @@ func construct_View_InputView() {
 
 	// label text construction
 	InputView_text_label = ge_go_sdl2.Text{
-		Id:        "label",
-		Content:   "Input directory path",
-		Font:      DefaultFont,
-		Size:      13,
-		X:         20,
-		Y:         10,
+		Id:      "label",
+		Content: "Input directory path",
+		Font:    DefaultFont,
+		Size:    13,
+		X:       20,
+		Y:       10, W: 231,
+		H: 21,
+
 		Alignment: ge_go_sdl2.Left,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}
@@ -67,12 +69,14 @@ func construct_View_InputView() {
 
 	// label_2 text construction
 	InputView_text_label_2 = ge_go_sdl2.Text{
-		Id:        "label_2",
-		Content:   "Output directory path",
-		Font:      DefaultFont,
-		Size:      13,
-		X:         280,
-		Y:         10,
+		Id:      "label_2",
+		Content: "Output directory path",
+		Font:    DefaultFont,
+		Size:    13,
+		X:       280,
+		Y:       10, W: 231,
+		H: 21,
+
 		Alignment: ge_go_sdl2.Left,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}
@@ -80,12 +84,14 @@ func construct_View_InputView() {
 
 	// pushButton_label text construction
 	InputView_text_pushButton_label = ge_go_sdl2.Text{
-		Id:        "pushButton_label",
-		Content:   "",
-		Font:      DefaultFont,
-		Size:      20,
-		X:         0,
-		Y:         0,
+		Id:      "pushButton_label",
+		Content: "",
+		Font:    DefaultFont,
+		Size:    20,
+		X:       0,
+		Y:       0, W: 491,
+		H: 0,
+
 		Alignment: ge_go_sdl2.Center,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}

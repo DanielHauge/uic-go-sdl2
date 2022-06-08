@@ -3,15 +3,15 @@ package gui
 import "github.com/DanielHauge/ge-go-sdl2"
 
 func OnNewValue_InputView_textField_textEdit(value string) {
-	// Update model
+	Args.InputDirectory = value
 }
 
 func OnNewValue_InputView_textField_textEdit_2(value string) {
-	// Update model
+	Args.OutputDirectory = value
 }
 
 func OnClick_InputView_button_pushButton() {
-	// Update model
+	Compile()
 }
 
 func NotifyValueChange_InputView_textField_textEdit(value string) {

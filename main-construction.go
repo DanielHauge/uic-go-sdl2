@@ -8,7 +8,7 @@ import (
 
 func defaultsDeclaration(fontPath string) string {
 
-	return fmt.Sprintf("\nvar (\n\tDefaultFont = \"%s\"\n\tDefaultButtonBorderColor uint32 = 0x00000000\n\tDefaultButtonColor  uint32        = 0xffffffff\n\tDefaultButtonTextSize       = 12\n\tDefaultLabelSize            = 14\n\tDefaultTextSize             = 14\n\tDefaultTextFieldColor  uint32     = 0xffffffff\n\tDefaultTextFieldBorderColor uint32 = 0x00000000\n\tDefaultViewColor      uint32      = 0xeeeeeeee\n\tDefaultViewBorderColor  uint32    = 0x08080808\n)\n\n", fontPath)
+	return fmt.Sprintf("\nvar (\n\tDefaultFont = \"%s\"\n\tDefaultButtonBorderColor uint32 = 0x00000000\n\tDefaultButtonColor  uint32        = 0xD1D1D1D1\n\tDefaultButtonTextSize       = 12\n\tDefaultLabelSize            = 14\n\tDefaultTextSize             = 14\n\tDefaultTextFieldColor  uint32     = 0xffffffff\n\tDefaultTextFieldBorderColor uint32 = 0x00000000\n\tDefaultViewColor      uint32      = 0xeeeeeeee\n\tDefaultViewBorderColor  uint32    = 0x08080808\n)\n\n", fontPath)
 }
 
 func constructMain(fontDir string, viewIdentifiers []string) string {

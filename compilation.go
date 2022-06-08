@@ -12,10 +12,11 @@ import (
 
 var fileNameExtractionRegEx *regexp.Regexp
 
-func Compile(inputDir string, outputDir string) {
+func Compile(inputDir string, outputDir string) int {
 	os.Mkdir(outputDir+"/gui", 0755)
 	files, err := ioutil.ReadDir(inputDir)
 	var viewIdentifiers []string
+	count := 0
 	nilOrPanic(err)
 	for _, file := range files {
 		if file.IsDir() || !strings.HasSuffix(file.Name(), ".ui") {
@@ -23,10 +24,12 @@ func Compile(inputDir string, outputDir string) {
 		}
 		viewIdentifier := compileView(fmt.Sprintf("%s/%s", inputDir, file.Name()), outputDir)
 		viewIdentifiers = append(viewIdentifiers, viewIdentifier)
+		count++
 	}
 	mainCode := constructMain(outputDir+string(os.PathSeparator)+"gui", viewIdentifiers)
 	createGoFile(fmt.Sprintf("%s/gui/main.go", outputDir), mainCode)
 	copyFont(outputDir)
+	return count
 }
 
 func compileView(inputFile string, outputDir string) string {

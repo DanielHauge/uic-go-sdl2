@@ -97,7 +97,7 @@ func constructText(txt ge_go_sdl2.Text, viewId string) (string, string) {
 	identifier := fmt.Sprintf("%s_text_%s", viewId, txt.Id)
 
 	defaultSize := ifElseAssign(txt.Size == 0, "DefaultLabelSize", strconv.Itoa(txt.Size))
-	construction := fmt.Sprintf("\n// %s text construction \n%s = ge_go_sdl2.Text{\nId:\"%s\",\nContent:\"%s\",\nFont: DefaultFont,\n\t\tSize:  %s,\n\t\tX: %d,\n\t\tY: %d,\nAlignment: %s,\nTextColor: sdl.Color{R:%d, G: %d, B: %d, A: %d},\n   \t}\n", txt.Id, identifier, txt.Id, txt.Content, defaultSize, txt.X, txt.Y, AlignmentToString(txt.Alignment), txt.TextColor.R, txt.TextColor.G, txt.TextColor.B, txt.TextColor.A)
+	construction := fmt.Sprintf("\n// %s text construction \n%s = ge_go_sdl2.Text{\nId:\"%s\",\nContent:\"%s\",\nFont: DefaultFont,\n\t\tSize:  %s,\n\t\tX: %d,\n\t\tY: %d,W:%d,\nH: %d,\n\nAlignment: %s,\nTextColor: sdl.Color{R:%d, G: %d, B: %d, A: %d},\n   \t}\n", txt.Id, identifier, txt.Id, txt.Content, defaultSize, txt.X, txt.Y, txt.W, txt.H, AlignmentToString(txt.Alignment), txt.TextColor.R, txt.TextColor.G, txt.TextColor.B, txt.TextColor.A)
 	return identifier, construction
 }
 
@@ -105,6 +105,7 @@ func constructButton(btn ge_go_sdl2.Button, viewId string, declarations *strings
 	btnLabelId := btn.Id + "_label"
 	btn.ContentLabel.Id = btnLabelId
 	btn.ContentLabel.Alignment = ge_go_sdl2.Center
+	btn.ContentLabel.W = btn.W
 	btnTextIdentifier, btnTextConstruction := constructText(btn.ContentLabel, viewId)
 	declarations.WriteString(fmt.Sprintf("%s %s\n", btnTextIdentifier, "ge_go_sdl2.Text"))
 	onClickIdentifier := fmt.Sprintf("%s_button_%s_onclick", viewId, btn.Id)

@@ -18,36 +18,42 @@ func construct_View_StatusSuccesView() {
 
 	// label text construction
 	StatusSuccesView_text_label = ge_go_sdl2.Text{
-		Id:        "label",
-		Content:   "Success",
-		Font:      DefaultFont,
-		Size:      34,
-		X:         10,
-		Y:         10,
+		Id:      "label",
+		Content: "Success",
+		Font:    DefaultFont,
+		Size:    34,
+		X:       10,
+		Y:       10, W: 501,
+		H: 31,
+
 		Alignment: ge_go_sdl2.Center,
 		TextColor: sdl.Color{R: 0, G: 255, B: 127, A: 255},
 	}
 
 	// SucessLabel text construction
 	StatusSuccesView_text_SucessLabel = ge_go_sdl2.Text{
-		Id:        "SucessLabel",
-		Content:   "Sucess message",
-		Font:      DefaultFont,
-		Size:      DefaultLabelSize,
-		X:         10,
-		Y:         50,
+		Id:      "SucessLabel",
+		Content: "Sucess message",
+		Font:    DefaultFont,
+		Size:    DefaultLabelSize,
+		X:       10,
+		Y:       50, W: 501,
+		H: 41,
+
 		Alignment: ge_go_sdl2.Center,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}
 
 	// label_2 text construction
 	StatusSuccesView_text_label_2 = ge_go_sdl2.Text{
-		Id:        "label_2",
-		Content:   "（*＾-＾*）(*^_^*)（*＾-＾*）(*^_^*)（*＾-＾*）(*^_^*)（*＾-＾*）(*^_^*)（*＾-＾*）(*^_^*)",
-		Font:      DefaultFont,
-		Size:      12,
-		X:         10,
-		Y:         100,
+		Id:      "label_2",
+		Content: "┏(^0^)┛ - (/^_^)/ - ┗(^0^)┓ - \\(^_^\\) - ┏(^0^)┛ - (/^_^)/ - ┗(^0^)┓",
+		Font:    DefaultFont,
+		Size:    12,
+		X:       10,
+		Y:       100, W: 501,
+		H: 20,
+
 		Alignment: ge_go_sdl2.Center,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}

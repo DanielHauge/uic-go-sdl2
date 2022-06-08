@@ -59,6 +59,11 @@
       <height>161</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>3</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>InputView</string>
     </property>
@@ -73,7 +78,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>StatusView</string>
+     <string>StatusSuccesView</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

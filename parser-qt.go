@@ -81,6 +81,8 @@ func parseLabel(label Widget) ge_go_sdl2.Text {
 		case "geometry":
 			t.X = parseInt32(prop.Rect.X)
 			t.Y = parseInt32(prop.Rect.Y)
+			t.W = parseInt32(prop.Rect.Width)
+			t.H = parseInt32(prop.Rect.Height)
 			break
 		case "text":
 			t.Content = prop.String

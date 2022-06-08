@@ -19,7 +19,6 @@ func main() {
 	} else {
 		fmt.Println("Expected input and output paths as argument.")
 		gui.RunGui()
-
 	}
 }
 

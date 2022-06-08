@@ -12,8 +12,11 @@ func NotifyViewChange_MainWindow_container_InputView(value string) {
 	ge_go_sdl2.NotifyPropertyChangeAsync(MainWindow_container_InputView.Id, "ViewId", value)
 }
 func NotifyViewChange_MainWindow_container_StatusView(value string) {
-	ge_go_sdl2.NotifyPropertyChangeAsync(MainWindow_container_StatusView.Id, "ViewId", value)
+	cbChan := make(chan int)
+	ge_go_sdl2.NotifyPropertyChangeCb(MainWindow_container_StatusView.Id, "ViewId", value, cbChan)
+	<-cbChan
 }
+
 func NotifyContentChange_MainWindow_text_label_3(value string) {
 	ge_go_sdl2.NotifyPropertyChangeAsync(MainWindow_text_label_3.Id, "Content", value)
 }

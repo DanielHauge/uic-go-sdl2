@@ -20,24 +20,28 @@ func construct_View_MainWindow() {
 
 	// label text construction
 	MainWindow_text_label = ge_go_sdl2.Text{
-		Id:        "label",
-		Content:   "UI Compiler",
-		Font:      DefaultFont,
-		Size:      24,
-		X:         10,
-		Y:         10,
+		Id:      "label",
+		Content: "UI Compiler",
+		Font:    DefaultFont,
+		Size:    24,
+		X:       10,
+		Y:       10, W: 271,
+		H: 31,
+
 		Alignment: ge_go_sdl2.Left,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}
 
 	// label_2 text construction
 	MainWindow_text_label_2 = ge_go_sdl2.Text{
-		Id:        "label_2",
-		Content:   "Source code available at: https://github.com/DanielHauge/uic-go-sdl2",
-		Font:      DefaultFont,
-		Size:      14,
-		X:         10,
-		Y:         40,
+		Id:      "label_2",
+		Content: "Source code available at: https://github.com/DanielHauge/uic-go-sdl2",
+		Font:    DefaultFont,
+		Size:    14,
+		X:       10,
+		Y:       40, W: 551,
+		H: 31,
+
 		Alignment: ge_go_sdl2.Left,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}
@@ -55,17 +59,19 @@ func construct_View_MainWindow() {
 		X:      10,
 		Y:      280,
 		Id:     "StatusView",
-		ViewId: "StatusSuccesView",
+		ViewId: "StatusBlankView",
 	}
 
 	// label_3 text construction
 	MainWindow_text_label_3 = ge_go_sdl2.Text{
-		Id:        "label_3",
-		Content:   "GUI envionment at: https://github.com/DanielHauge/ge-go-sdl2",
-		Font:      DefaultFont,
-		Size:      14,
-		X:         10,
-		Y:         70,
+		Id:      "label_3",
+		Content: "GUI envionment at: https://github.com/DanielHauge/ge-go-sdl2",
+		Font:    DefaultFont,
+		Size:    14,
+		X:       10,
+		Y:       70, W: 551,
+		H: 31,
+
 		Alignment: ge_go_sdl2.Left,
 		TextColor: sdl.Color{R: 0, G: 0, B: 0, A: 0},
 	}
