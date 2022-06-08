@@ -12,6 +12,7 @@ import (
 func constructView(view ge_go_sdl2.View) (string, string, []userEventInterface, []stateChangeEventInterface) {
 	defaultColor := ifElseAssign(view.BgColor == 0, "DefaultViewColor", fmt.Sprintf("0x%x", view.BgColor))
 	DefaultBorderColor := ifElseAssign(view.BorderColor == 0, "DefaultViewBorderColor", fmt.Sprintf("0x%x", view.BorderColor))
+	importSdl := false
 	var childElementIdentifiers []string
 	var userEventsInterfaces []userEventInterface
 	var stateChangeEventInterfaces []stateChangeEventInterface
@@ -27,6 +28,7 @@ func constructView(view ge_go_sdl2.View) (string, string, []userEventInterface, 
 			stateChangeEventInterfaces = append(stateChangeEventInterfaces, stateChangeEventInterface{ElementIdIdentifier: fmt.Sprintf("%s.Id", identifier), Property: "ViewId", functionIdentifier: fmt.Sprintf("NotifyViewChange_%s", identifier)})
 			break
 		case ge_go_sdl2.Text:
+			importSdl = true
 			identifier, construction = constructText(t, view.Id)
 			elementDeclarations.WriteString(fmt.Sprintf("%s %s\n", identifier, "ge_go_sdl2.Text"))
 			stateChangeEventInterfaces = append(stateChangeEventInterfaces, stateChangeEventInterface{ElementIdIdentifier: fmt.Sprintf("%s.Id", identifier), Property: "Content", functionIdentifier: fmt.Sprintf("NotifyContentChange_%s", identifier)})
@@ -57,7 +59,8 @@ func constructView(view ge_go_sdl2.View) (string, string, []userEventInterface, 
 		"%s = ge_go_sdl2.View{\nX:%d,\nY: %d,\nH:%d,\nW:%d,\nId:\"%s\",\nBorderColor:%s,\nBgColor:%s,\n\tChildren: %s,}\n",
 		viewIdentifier, view.X, view.Y, view.H, view.W, view.Id, DefaultBorderColor, defaultColor, childrenIdentifier)
 	elementDeclarations.WriteString(fmt.Sprintf("%s %s\n", viewIdentifier, "ge_go_sdl2.View"))
-	viewCodeFileContent := fmt.Sprintf("package gui\n\nimport \"github.com/DanielHauge/ge-go-sdl2\"\n\n // UI element declaration \n var (\n%s) \n\n// %s view and elements construction \nfunc construct_%s(){\n %s \n// %s view element construction \n %s %s \n} \n", elementDeclarations.String(), view.Id, viewIdentifier, childElementConstructions.String(), view.Id, childrenSliceConstruction, viewConstruction)
+	importSdlString := ifElseAssign(importSdl, "\"github.com/veandco/go-sdl2/sdl\"", "")
+	viewCodeFileContent := fmt.Sprintf("package gui\n\nimport (\n \"github.com/DanielHauge/ge-go-sdl2\"\n %s \n)\n // UI element declaration \n var (\n%s) \n\n// %s view and elements construction \nfunc construct_%s(){\n %s \n// %s view element construction \n %s %s \n} \n", importSdlString, elementDeclarations.String(), view.Id, viewIdentifier, childElementConstructions.String(), view.Id, childrenSliceConstruction, viewConstruction)
 
 	return viewIdentifier, viewCodeFileContent, userEventsInterfaces, stateChangeEventInterfaces
 }
@@ -77,16 +80,31 @@ func constructContainer(container ge_go_sdl2.Container, viewId string) (string, 
 	return identifier, construction
 }
 
+func AlignmentToString(alignment ge_go_sdl2.HAlign) string {
+	switch alignment {
+	case ge_go_sdl2.Left:
+		return "ge_go_sdl2.Left"
+	case ge_go_sdl2.Center:
+		return "ge_go_sdl2.Center"
+	case ge_go_sdl2.Right:
+		return "ge_go_sdl2.Right"
+	default:
+		panic("No valid alignment found")
+	}
+}
+
 func constructText(txt ge_go_sdl2.Text, viewId string) (string, string) {
 	identifier := fmt.Sprintf("%s_text_%s", viewId, txt.Id)
+
 	defaultSize := ifElseAssign(txt.Size == 0, "DefaultLabelSize", strconv.Itoa(txt.Size))
-	construction := fmt.Sprintf("\n// %s text construction \n%s = ge_go_sdl2.Text{\nId:\"%s\",\nContent:\"%s\",\nFont: DefaultFont,\n\t\tSize:  %s,\n\t\tX: %d,\n\t\tY: %d,\n\t}\n", txt.Id, identifier, txt.Id, txt.Content, defaultSize, txt.X, txt.Y)
+	construction := fmt.Sprintf("\n// %s text construction \n%s = ge_go_sdl2.Text{\nId:\"%s\",\nContent:\"%s\",\nFont: DefaultFont,\n\t\tSize:  %s,\n\t\tX: %d,\n\t\tY: %d,\nAlignment: %s,\nTextColor: sdl.Color{R:%d, G: %d, B: %d, A: %d},\n   \t}\n", txt.Id, identifier, txt.Id, txt.Content, defaultSize, txt.X, txt.Y, AlignmentToString(txt.Alignment), txt.TextColor.R, txt.TextColor.G, txt.TextColor.B, txt.TextColor.A)
 	return identifier, construction
 }
 
 func constructButton(btn ge_go_sdl2.Button, viewId string, declarations *strings.Builder) (string, string, string) {
 	btnLabelId := btn.Id + "_label"
 	btn.ContentLabel.Id = btnLabelId
+	btn.ContentLabel.Alignment = ge_go_sdl2.Center
 	btnTextIdentifier, btnTextConstruction := constructText(btn.ContentLabel, viewId)
 	declarations.WriteString(fmt.Sprintf("%s %s\n", btnTextIdentifier, "ge_go_sdl2.Text"))
 	onClickIdentifier := fmt.Sprintf("%s_button_%s_onclick", viewId, btn.Id)

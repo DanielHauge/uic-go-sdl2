@@ -19,6 +19,6 @@ func copyFont(outputDir string) {
 	file, err := ioutil.ReadFile("./assets/default.ttf")
 	nilOrPanic(err)
 
-	err = ioutil.WriteFile(outputDir+"/default.ttf", file, 0644)
+	err = ioutil.WriteFile(outputDir+"/gui/default.ttf", file, 0644)
 	nilOrPanic(err)
 }

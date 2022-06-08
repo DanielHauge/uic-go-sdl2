@@ -3,7 +3,7 @@ package uic_go_sdl2
 import (
 	"fmt"
 	ge_go_sdl2 "github.com/DanielHauge/ge-go-sdl2"
-	"strconv"
+	"github.com/veandco/go-sdl2/sdl"
 )
 
 func parseFromQtFormat(qtUi QtUi) ge_go_sdl2.View {
@@ -39,8 +39,11 @@ func parseButton(btn Widget) ge_go_sdl2.Button {
 		case "text":
 			button.Content = prop.String
 			break
+		case "font":
+			button.ContentLabel.Size = parseInt(prop.Font.PointSize)
+			break
 		default:
-			fmt.Println("Does not support property: " + prop.Name)
+			fmt.Println("Button does not support property: " + prop.Name)
 		}
 	}
 	button.Id = btn.Name
@@ -60,8 +63,11 @@ func parseTextField(txtField Widget) ge_go_sdl2.TextField {
 		case "text":
 			tf.Value = prop.String
 			break
+		case "font":
+			tf.Size = parseInt(prop.Font.PointSize)
+			break
 		default:
-			fmt.Println("Does not support property: " + prop.Name)
+			fmt.Println("TextField does not support property: " + prop.Name)
 		}
 	}
 	tf.Id = txtField.Name
@@ -79,8 +85,27 @@ func parseLabel(label Widget) ge_go_sdl2.Text {
 		case "text":
 			t.Content = prop.String
 			break
+		case "font":
+			t.Size = parseInt(prop.Font.PointSize)
+			break
+		case "alignment":
+			switch prop.Set {
+			case "Qt::AlignLeft":
+				t.Alignment = ge_go_sdl2.Left
+			case "Qt::AlignCenter":
+				t.Alignment = ge_go_sdl2.Center
+			case "Qt::AlignRight":
+				t.Alignment = ge_go_sdl2.Right
+			}
+		case "palette":
+			t.TextColor = sdl.Color{
+				R: parseUint8(prop.Palette.Active.ColorRole.Brush.Color.Red),
+				G: parseUint8(prop.Palette.Active.ColorRole.Brush.Color.Green),
+				B: parseUint8(prop.Palette.Active.ColorRole.Brush.Color.Blue),
+				A: parseUint8(prop.Palette.Active.ColorRole.Brush.Color.Alpha),
+			}
 		default:
-			fmt.Println("Does not support property: " + prop.Name)
+			fmt.Println("Label does not support property: " + prop.Name)
 		}
 	}
 	t.Id = label.Name
@@ -99,7 +124,7 @@ func parseContainer(cont Widget) ge_go_sdl2.Container {
 			c.ViewId = prop.String
 			break
 		default:
-			fmt.Println("Does not support property: " + prop.Name)
+			fmt.Println("Container does not support property: " + prop.Name)
 		}
 	}
 	c.Id = cont.Name
@@ -131,7 +156,7 @@ func parseView(qtWidget Widget) ge_go_sdl2.View {
 			view.Id = prop.String
 			break
 		default:
-			fmt.Println("Does not support property: " + prop.Name)
+			fmt.Println("View does not support property: " + prop.Name)
 		}
 	}
 	var children []interface{}
@@ -140,15 +165,9 @@ func parseView(qtWidget Widget) ge_go_sdl2.View {
 		case "QWidget":
 			children = parseWidgets(child.Widget)
 		default:
-			fmt.Sprintf("Does not support parsing of class: " + child.Class)
+			fmt.Sprintf("View does not support parsing of class: " + child.Class)
 		}
 	}
 	view.Children = children
 	return view
-}
-
-func parseInt32(s string) int32 {
-	n, err := strconv.ParseInt(s, 10, 64)
-	nilOrPanic(err)
-	return int32(n)
 }

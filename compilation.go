@@ -13,6 +13,7 @@ import (
 var fileNameExtractionRegEx *regexp.Regexp
 
 func Compile(inputDir string, outputDir string) {
+	os.Mkdir(outputDir+"/gui", 0755)
 	files, err := ioutil.ReadDir(inputDir)
 	var viewIdentifiers []string
 	nilOrPanic(err)
@@ -23,8 +24,8 @@ func Compile(inputDir string, outputDir string) {
 		viewIdentifier := compileView(fmt.Sprintf("%s/%s", inputDir, file.Name()), outputDir)
 		viewIdentifiers = append(viewIdentifiers, viewIdentifier)
 	}
-	mainCode := constructMain(outputDir, viewIdentifiers)
-	createGoFile(fmt.Sprintf("%s/compilation.go", outputDir), mainCode)
+	mainCode := constructMain(outputDir+string(os.PathSeparator)+"gui", viewIdentifiers)
+	createGoFile(fmt.Sprintf("%s/gui/main.go", outputDir), mainCode)
 	copyFont(outputDir)
 }
 
@@ -53,8 +54,8 @@ func compileView(inputFile string, outputDir string) string {
 	presenterCode := constructPresenter(uei, scei)
 
 	// Create go files and format them.
-	createGoFile(fmt.Sprintf("%s/%s_view.go", outputDir, fileName), viewCode)
-	createGoFile(fmt.Sprintf("%s/%s_presenter.go", outputDir, fileName), presenterCode)
+	createGoFile(fmt.Sprintf("%s/gui/%s_view.go", outputDir, fileName), viewCode)
+	createGoFile(fmt.Sprintf("%s/gui/%s_presenter.go", outputDir, fileName), presenterCode)
 
 	return identifier
 }
