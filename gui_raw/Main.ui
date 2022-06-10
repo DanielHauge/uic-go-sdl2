@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Main</class>
+ <widget class="QMainWindow" name="Main">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>UICompiler</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -61,11 +61,11 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>3</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="title">
-     <string>InputView</string>
+     <string>Input</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="StatusView">
@@ -78,7 +78,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>StatusSuccesView</string>
+     <string>Status Views (Placeholder)</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

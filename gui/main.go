@@ -17,16 +17,13 @@ var (
 
 func RunGui() {
 	var views []ge_go_sdl2.View
-
-	construct_View_MainWindow()
-	views = append(views, View_MainWindow)
-	construct_View_InputView()
-	views = append(views, View_InputView)
-	construct_View_StatusBadView()
-	views = append(views, View_StatusBadView)
-	construct_View_StatusSuccesView()
-	views = append(views, View_StatusSuccesView)
-	construct_View_StatusBlankView()
-	views = append(views, View_StatusBlankView)
+	construct_View_UICompiler()
+	views = append(views, View_UICompiler)
+	construct_View_Fail()
+	views = append(views, View_Fail)
+	construct_View_Input()
+	views = append(views, View_Input)
+	construct_View_Success()
+	views = append(views, View_Success)
 	ge_go_sdl2.Run(views)
 }

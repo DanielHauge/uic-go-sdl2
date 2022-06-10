@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>StatusBadVIew</class>
- <widget class="QMainWindow" name="StatusBadVIew">
+ <class>Success</class>
+ <widget class="QMainWindow" name="Success">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>523</width>
-    <height>143</height>
+    <width>521</width>
+    <height>142</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>9</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
-   <string>StatusBadView</string>
+   <string>Success</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -24,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>311</width>
+      <width>501</width>
       <height>31</height>
      </rect>
     </property>
@@ -34,18 +29,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>85</green>
-          <blue>0</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>85</green>
-          <blue>0</blue>
+          <red>0</red>
+          <green>255</green>
+          <blue>127</blue>
          </color>
         </brush>
        </colorrole>
@@ -54,18 +40,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>85</green>
-          <blue>0</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>85</green>
-          <blue>0</blue>
+          <red>0</red>
+          <green>255</green>
+          <blue>127</blue>
          </color>
         </brush>
        </colorrole>
@@ -80,51 +57,59 @@
          </color>
         </brush>
        </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>120</red>
-          <green>120</green>
-          <blue>120</blue>
-         </color>
-        </brush>
-       </colorrole>
       </disabled>
      </palette>
     </property>
     <property name="font">
      <font>
-      <pointsize>21</pointsize>
+      <pointsize>34</pointsize>
      </font>
     </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
     <property name="text">
-     <string>Ups... Something went wrong</string>
+     <string>Success</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="ErrorLabel">
+   <widget class="QLabel" name="SucessLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
-      <width>471</width>
-      <height>16</height>
+      <y>50</y>
+      <width>501</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Error message</string>
+     <string>Sucess message</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>100</y>
       <width>501</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>(\*.*)\┳━┳        -&gt;       (╯°□°)╯^┻━┻     -&gt;    ╰(°□°)╯</string>
+     <string>┏(^0^)┛ - (/^_^)/ - ┗(^0^)┓ - (^_^) - ┏(^0^)┛ - (/^_^)/ - ┗(^0^)┓</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
