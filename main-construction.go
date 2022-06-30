@@ -3,6 +3,7 @@ package uic_go_sdl2
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -15,7 +16,9 @@ func constructMain(fontDir string, viewIdentifiers []string) string {
 	builder := strings.Builder{}
 	builder.WriteString("package gui\n")
 	builder.WriteString("\nimport \"github.com/DanielHauge/ge-go-sdl2\"\n\n")
-	fontDirSafe := strings.Replace(fontDir, "\\", "\\\\", -1)
+	cleanedDir := filepath.Clean(fontDir)
+	fontDirSafe := strings.Replace(cleanedDir, "\\", "\\\\", -1)
+
 	builder.WriteString(defaultsDeclaration(fmt.Sprintf("%s%s%sdefault.ttf", fontDirSafe, string(os.PathSeparator), string(os.PathSeparator))))
 	builder.WriteString("func RunGui(){\n")
 	builder.WriteString("var views []ge_go_sdl2.View\n")

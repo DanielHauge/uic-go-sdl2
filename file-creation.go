@@ -3,7 +3,9 @@ package uic_go_sdl2
 import (
 	"io/ioutil"
 	"log"
+	"os"
 	"os/exec"
+	"path/filepath"
 )
 
 func createGoFile(filePath string, content string) {
@@ -16,7 +18,9 @@ func createGoFile(filePath string, content string) {
 }
 
 func copyFont(outputDir string) {
-	file, err := ioutil.ReadFile("./assets/default.ttf")
+	path, err := os.Executable()
+	dir, _ := filepath.Split(path)
+	file, err := ioutil.ReadFile(dir + "default.ttf")
 	nilOrPanic(err)
 
 	err = ioutil.WriteFile(outputDir+"/gui/default.ttf", file, 0644)

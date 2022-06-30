@@ -1,9 +1,9 @@
 package gui
 
-import "github.com/DanielHauge/ge-go-sdl2"
+import ge_go_sdl2 "github.com/DanielHauge/ge-go-sdl2"
 
 var (
-	DefaultFont                        = "D:\\repo\\uic-go-sdl2\\gui\\default.ttf"
+	DefaultFont                        = "C:\\Users\\Animc\\repo\\uic-go-sdl2\\assets\\default.ttf"
 	DefaultButtonBorderColor    uint32 = 0x00000000
 	DefaultButtonColor          uint32 = 0xD1D1D1D1
 	DefaultButtonTextSize              = 12
